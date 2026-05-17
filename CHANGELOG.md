@@ -80,3 +80,16 @@ El script para desplegar los comandos de barra de manera global ;)
 
 "Mi sueño es ser Ingeniero del Software"
 > @CyRstudent con 13 años, sin saber la desgracia y la gracia de estar mirando a tu pantalla durante 4h intentando figurar qué bug ha hecho.
+
+## v1.1.2 - Despliegue de comandos
+Ya hago un patch para que el siguiente PR sea algo más heavy.
+
+### Features (¿Qué hay nuevo?)
+- [`deploySlashCommands.ts`](src/deploySlashCommands.ts), el script que despliega los comandos de manera global
+- El script correspondiente [`npm run deploy`](package.json#L17)
+
+### Bug fixes 
+Ninguno.
+
+### What's next? / ¿Qué va a ser lo siguiente?
+¿Soporte para botones? Lo iré viendo conforme vea.

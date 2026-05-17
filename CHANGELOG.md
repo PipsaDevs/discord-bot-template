@@ -64,3 +64,19 @@ Probablemente mejorar el README.md, y añadir un script que despliegue los coman
 
 "Feliz año nuevo!11!!!1!1"
 > @CyRstudent a 22/07/2025, futuro ingeniero
+
+## v1.1.1 - Hotfix
+Resulta que hay que gestionar los imports de un mejor modo, sobre todo CUANDO COMPILAS LA CARPETA [`src`](src) (internal rage goes brrrrrrr)
+
+### Features (¿Qué hay nuevo?)
+Nada.
+
+### Bug fixes 
+- [`scanDir.ts`](src/util/scanDir.ts) ahora devuelve una lista de strings, y no una lista de Dirents y listas de Dirents...
+- [`Client.ts`](src/classes/Client.ts) usa los imports correctos, independientemente de que lo corras usando ts-node o compilandolo y despues corriendolo desde dist.
+
+### What's next? / ¿Qué va a ser lo siguiente?
+El script para desplegar los comandos de barra de manera global ;)
+
+"Mi sueño es ser Ingeniero del Software"
+> @CyRstudent con 13 años, sin saber la desgracia y la gracia de estar mirando a tu pantalla durante 4h intentando figurar qué bug ha hecho.

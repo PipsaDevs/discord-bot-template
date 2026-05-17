@@ -1,17 +1,17 @@
 import { readdir } from 'fs/promises';
-import type { Dirent } from 'fs';
 
-type DirEntry = Dirent<string> | DirEntry[];
-
-async function scanDir(baseDir: string): Promise<DirEntry[]> {
-	const res: DirEntry[] = await readdir(baseDir, { withFileTypes: true });
-	for (let i = 0; i < res.length; i++) {
-		const entry = res[i] as Dirent<string>;
+async function scanDir(baseDir: string): Promise<string[]> {
+	const result: string[] = [];
+	const entries = await readdir(baseDir, { withFileTypes: true });
+	for (const entry of entries) {
+		const fullPath = `${baseDir}/${entry.name}`;
 		if (entry.isDirectory()) {
-			res[i] = await scanDir(`${baseDir}/${entry.name}`);
+			result.push(...(await scanDir(fullPath)));
+		} else if (entry.name.endsWith('.js')) {
+			result.push(fullPath);
 		}
 	}
-	return res;
+	return result;
 }
 
 export { scanDir };

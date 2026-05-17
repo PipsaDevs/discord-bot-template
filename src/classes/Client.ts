@@ -4,9 +4,13 @@ import Log from './Log.js';
 import type { Event } from '../interfaces/Event.js';
 import type { SlashCommand } from '../interfaces/SlashCommand.js';
 import * as djs from 'discord.js';
-import type { Dirent } from 'fs';
 import { scanDir } from '../util/scanDir.js';
 import type { InteractionHandler } from '../interfaces/InteractionHandler.js';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import path from 'node:path';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const distRoot = path.resolve(__dirname, '..');
 
 class Client extends djs.Client {
 	logs: BoundedQueue<Log>;
@@ -72,12 +76,9 @@ class Client extends djs.Client {
 		collection: djs.Collection<K, V>,
 		keySelector: (item: V) => K,
 	): Promise<void> {
-		const files = await scanDir(dirName);
-		for (let entry of files) {
-			entry = entry as Dirent<string>;
-			const mod = await import(
-				`../../${entry.parentPath}/${entry.name.replace('ts', 'js')}`
-			);
+		const files = await scanDir(path.join(distRoot, dirName));
+		for (const fpath of files) {
+			const mod = await import(pathToFileURL(fpath).href);
 			const def: V = mod.default as V;
 			collection.set(keySelector(def), def);
 		}
@@ -88,21 +89,19 @@ class Client extends djs.Client {
 	 */
 	async start(): Promise<void> {
 		await this.loadToCollection(
-			'src/interactions/slash_commands',
+			'interactions/slash_commands',
 			this.slashCommands,
 			(cmd) => cmd.data.name,
 		);
 		await this.loadToCollection(
-			'src/interactions/handlers',
+			'interactions/handlers',
 			this.interactionHandlers,
 			(handler) => handler.interactionType,
 		);
-		const events = await scanDir('src/events');
-		for (let entry of events) {
-			entry = entry as Dirent<string>;
-			const mod = await import(
-				`../events/${entry.name.replace('ts', 'js')}`
-			);
+		const eventsDir = path.join(distRoot, 'events');
+		const events = await scanDir(eventsDir);
+		for (const entry of events) {
+			const mod = await import(pathToFileURL(entry).href);
 			const event: Event = mod.default;
 			if (event.once) {
 				this.once(event.name.toString(), async (...args: unknown[]) => {

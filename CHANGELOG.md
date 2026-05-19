@@ -93,3 +93,21 @@ Ninguno.
 
 ### What's next? / ¿Qué va a ser lo siguiente?
 ¿Soporte para botones? Lo iré viendo conforme vea.
+
+## v1.1.3 - Soporte para Botones (y componentes de mensajes en general)
+¡MUY BUENOS DÍAS! Ya estamos cada vez más cerca de hacer esta plantilla funcional. Tenemos ya soporte para botones y soporte para muchas cosas que podremos implementar en el futuro de una manera más fácil.
+
+### Features (¿Qué hay nuevo?)
+- El enum [`ButtonOPCodes.ts`](src/enums/ButtonOPCodes.ts), que nos ayuda a determinar qué acción hará un botón
+- La interfaz [`ButtonCommand.ts`](src\interfaces\ButtonCommand.ts), que da estructura a un comando de botón
+- El handler [`ButtonHandler.ts`](src\interactions\handlers\ButtonHandler.ts), que da soporte para las interacciones de botones.
+- La propiedad [`Client#buttonCommands`](src/classes/Client.ts#L24), una colección de comandos
+
+### Bug fixes
+- Hemos actualizado el script `npm run format:check` para que no compruebe archivos que no sean de typescript...
+
+### What's next? / ¿Qué va a ser lo siguiente?
+- Implementaremos algunos ejemplos de comandos para que se clarifique como se debe de construir un comando. También tenemos planes de hacer un README decente e implementar una herramienta que nos genere una pagina de documentación en base a los comentarios JSDocs.
+
+"¿Esta integral se hace por cambio de variable o por cambio de carrera?"
+> Muchos compañeros (estamos ya a finales de mayo)

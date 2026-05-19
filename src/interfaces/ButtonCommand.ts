@@ -5,8 +5,8 @@ import type ButtonOPCodes from '../enums/ButtonOPCodes.js';
 export interface ButtonCommand {
 	opcode: ButtonOPCodes;
 	execute: (
-		client: Client,
 		interaction: ButtonInteraction,
+		client: Client,
 		...args: string[]
 	) => Promise<void>;
 }

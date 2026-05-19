@@ -8,6 +8,8 @@ import { scanDir } from '../util/scanDir.js';
 import type { InteractionHandler } from '../interfaces/InteractionHandler.js';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
+import type ButtonOPCodes from '../enums/ButtonOPCodes.js';
+import type { ButtonCommand } from '../interfaces/ButtonCommand.js';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distRoot = path.resolve(__dirname, '..');
@@ -19,6 +21,7 @@ class Client extends djs.Client {
 		InteractionHandler
 	>;
 	slashCommands: djs.Collection<string, SlashCommand>;
+	buttonCommands: djs.Collection<ButtonOPCodes, ButtonCommand>;
 	developers: string[];
 	/**
 	 * Instantiates an object of class Client
@@ -39,6 +42,7 @@ class Client extends djs.Client {
 		this.rest = new djs.REST({ version: '10' }).setToken(this.token);
 		this.interactionHandlers = new djs.Collection();
 		this.slashCommands = new djs.Collection();
+		this.buttonCommands = new djs.Collection();
 		this.developers = developers ?? [];
 	}
 
@@ -97,6 +101,11 @@ class Client extends djs.Client {
 			'interactions/handlers',
 			this.interactionHandlers,
 			(handler) => handler.interactionType,
+		);
+		await this.loadToCollection(
+			'interactions/button_commands',
+			this.buttonCommands,
+			(cmd) => cmd.opcode,
 		);
 		const eventsDir = path.join(distRoot, 'events');
 		const events = await scanDir(eventsDir);

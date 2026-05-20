@@ -12,7 +12,22 @@ const buttonHandler: InteractionHandler<ButtonInteraction> = {
 		if (args[0] === '0') {
 			return;
 		}
-		const opc = ButtonOPCodes[args[0] as keyof typeof ButtonOPCodes];
+		const opc = Object.values(ButtonOPCodes).find((v) => v === args[0]) as
+			| ButtonOPCodes
+			| undefined;
+
+		if (!opc) {
+			client.emit(
+				'error',
+				new Error(
+					`OPCode ${args[0]} was not found inside Client#buttonCommands collection`,
+				),
+			);
+			await interaction.reply(
+				'¡Ups! Todavía no tengo un programa para ejecutar este botón. Considera reportar este incidente a mi desarrollador.',
+			);
+			return;
+		}
 		const cmd = client.buttonCommands.get(opc);
 		if (!cmd) {
 			client.emit(

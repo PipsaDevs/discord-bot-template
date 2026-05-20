@@ -7,7 +7,7 @@ async function scanDir(baseDir: string): Promise<string[]> {
 		const fullPath = `${baseDir}/${entry.name}`;
 		if (entry.isDirectory()) {
 			result.push(...(await scanDir(fullPath)));
-		} else if (entry.name.endsWith('.js')) {
+		} else if (entry.name.endsWith('.js') || entry.name.endsWith('ts')) {
 			result.push(fullPath);
 		}
 	}

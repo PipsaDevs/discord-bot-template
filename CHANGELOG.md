@@ -111,3 +111,19 @@ Ninguno.
 
 "¿Esta integral se hace por cambio de variable o por cambio de carrera?"
 > Muchos compañeros (estamos ya a finales de mayo)
+
+## v1.1.4 - Muchas cosas // Miscellaneous
+He hecho un montón de cosas, y no sé como agruparlas bajo un título, así que aquí os las comentos.
+
+### Features (¿Qué hay nuevo?)
+- Comando de barra [`ayuda.ts`](src/interactions/slash_commands/ayuda.ts). No creo que me haga mucha falta describirlo...
+- Un [comando simple](src\interactions\slash_commands\role-selector.ts) de selector de roles integrado con su correspondiente [comando de botón](src\interactions\button_commands\role-selector.ts).
+- Archivo de configuración para nodemon [`nodemon.json`](nodemon.json)
+- Hemos reemplazado el paquete `ts-node` por `tsx`
+
+### Bug fixes 
+- Hemos compilado los tipos en otra carpeta en `dist/`
+- Incluir los archivos `.ts` en [`scanDir.ts`](src\util\scanDir.ts)
+
+### What's next? / ¿Qué va a ser lo siguiente?
+Seguimos teniendo pendiente lo de la documentación, así que eso.

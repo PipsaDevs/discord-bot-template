@@ -3,9 +3,9 @@
  */
 
 enum CommandCategory {
-	DEV = 'development',
-	MOD = 'moderation',
-	INFO = 'bot info',
+	DEV = 'Development',
+	MOD = 'Moderation',
+	INFO = 'Bot information',
 	// Will add more as more commands are written
 }
 

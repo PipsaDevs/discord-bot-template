@@ -127,3 +127,23 @@ He hecho un montón de cosas, y no sé como agruparlas bajo un título, así que
 
 ### What's next? / ¿Qué va a ser lo siguiente?
 Seguimos teniendo pendiente lo de la documentación, así que eso.
+
+## v1.1.5 - ¿Un adiós o un hasta pronto?
+Esta versión finalmente marca un hito, ya hemos construido una versión funcional de la plantilla. Hemos implementado muchas cosas que despues puedes coger y seguir desarrollando o implementado sin tener que escribir _todo_ desde 0.
+
+### Features (¿Qué hay nuevo?)
+- El comando de barra [`eval.ts`](src\interactions\slash_commands\dev\eval.ts), que permite evaluar expresiones en el entorno a través de Discord
+- El comando de barra [`reiniciar.ts`](src\interactions\slash_commands\dev\reiniciar.ts), que permite reiniciar el bot (tanto proceso como cliente ws a distanica).
+- Hemos reorganizado los comandos de barra en carpetas que van acorde a las categorias que ya hemos definido en [`CommandCategory.ts`](src\enums\CommandCategory.ts)
+
+> [!WARNING]
+> El comando `/eval` puede ser la perdición en manos de la persona equivocada. Aún estando marcado como [`CommandCategory#DEV`](src\enums\CommandCategory.ts#L6), que, consecuentemente, deja que solo los desarrolladores cuyos IDs están en la propiedad [`Client#developers`](C:\Users\hsmad\proyectos\discord-bot-example\src\classes\Client.ts#L30) ejecuten el comando, asegurate que cuando corras el bot, reconozcas *TODOS* los IDs.
+
+### Bug fixes
+¡Ninguno!
+
+### What's next? / ¿Qué va a ser lo siguiente?
+El repositorio va a estar un tiempo inactivo, pero iremos documentando todo el proyecto cuando tengamos más tiempo ;)
+
+"Bro rafa tengo una idea"
+> @CyRstudent el día antes de empezar este repo

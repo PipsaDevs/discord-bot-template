@@ -3,12 +3,12 @@ import {
 	EmbedBuilder,
 	SlashCommandBuilder,
 } from 'discord.js';
-import type { SlashCommand } from '../../interfaces/SlashCommand.js';
-import CommandCategory from '../../enums/CommandCategory.js';
+import type { SlashCommand } from '../../../interfaces/SlashCommand.js';
+import CommandCategory from '../../../enums/CommandCategory.js';
 import { transpile } from 'typescript';
 import { inspect } from 'node:util';
-import { toError } from '../../util/toError.js';
-import { scape } from '../../util/scape.js';
+import { toError } from '../../../util/toError.js';
+import { scape } from '../../../util/scape.js';
 const hCmd: SlashCommand = {
 	data: new SlashCommandBuilder()
 		.setName('eval')

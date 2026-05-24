@@ -7,23 +7,39 @@
 export default class BoundedQueue<T> {
 	private _items: T[] = [];
 	private _capacity: number;
+	private _head = 0;
+	private _tail = 0;
+	private _size = 0;
 
 	constructor(capacity: number) {
 		this._capacity = capacity;
 	}
+
 	get items() {
-		return this._items;
+		const res: T[] = [];
+		let current = this._head;
+		for (let i = 0; i < this._size; i++) {
+			res.push(this._items[current] as T);
+			current = (current + 1) % this._capacity;
+		}
+		return res;
 	}
 	get capacity() {
 		return this._capacity;
 	}
+	get size() {
+		return this._size;
+	}
 
 	push_back(...items: T[]): void {
 		for (const item of items) {
-			this._items.push(item);
-			if (this._items.length >= this._capacity) {
-				this._items.shift();
+			this._items[this._tail] = item;
+			if (this._size === this._capacity) {
+				this._head = (this._head + 1) % this._capacity;
+			} else {
+				this._size++;
 			}
+			this._tail = (this._tail + 1) % this._capacity;
 		}
 	}
 }

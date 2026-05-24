@@ -1,6 +1,6 @@
 {
 	"name": "discord-bot-template",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"description": "¡Un bot de Discord listo para usar!",
 	"type": "module",
 	"main": "src/index.ts",

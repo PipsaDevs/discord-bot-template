@@ -99,8 +99,8 @@ Ninguno.
 
 ### Features (¿Qué hay nuevo?)
 - El enum [`ButtonOPCodes.ts`](src/enums/ButtonOPCodes.ts), que nos ayuda a determinar qué acción hará un botón
-- La interfaz [`ButtonCommand.ts`](src\interfaces\ButtonCommand.ts), que da estructura a un comando de botón
-- El handler [`ButtonHandler.ts`](src\interactions\handlers\ButtonHandler.ts), que da soporte para las interacciones de botones.
+- La interfaz [`ButtonCommand.ts`](src/interfaces/ButtonCommand.ts), que da estructura a un comando de botón
+- El handler [`ButtonHandler.ts`](src/interactions/handlers/ButtonHandler.ts), que da soporte para las interacciones de botones.
 - La propiedad [`Client#buttonCommands`](src/classes/Client.ts#L24), una colección de comandos
 
 ### Bug fixes
@@ -117,13 +117,13 @@ He hecho un montón de cosas, y no sé como agruparlas bajo un título, así que
 
 ### Features (¿Qué hay nuevo?)
 - Comando de barra [`ayuda.ts`](src/interactions/slash_commands/ayuda.ts). No creo que me haga mucha falta describirlo...
-- Un [comando simple](src\interactions\slash_commands\role-selector.ts) de selector de roles integrado con su correspondiente [comando de botón](src\interactions\button_commands\role-selector.ts).
+- Un [comando simple](src/interactions/slash_commands/role-selector.ts) de selector de roles integrado con su correspondiente [comando de botón](src/interactions/button_commands/role-selector.ts).
 - Archivo de configuración para nodemon [`nodemon.json`](nodemon.json)
 - Hemos reemplazado el paquete `ts-node` por `tsx`
 
 ### Bug fixes 
 - Hemos compilado los tipos en otra carpeta en `dist/`
-- Incluir los archivos `.ts` en [`scanDir.ts`](src\util\scanDir.ts)
+- Incluir los archivos `.ts` en [`scanDir.ts`](src/util/scanDir.ts)
 
 ### What's next? / ¿Qué va a ser lo siguiente?
 Seguimos teniendo pendiente lo de la documentación, así que eso.
@@ -132,12 +132,12 @@ Seguimos teniendo pendiente lo de la documentación, así que eso.
 Esta versión finalmente marca un hito, ya hemos construido una versión funcional de la plantilla. Hemos implementado muchas cosas que despues puedes coger y seguir desarrollando o implementado sin tener que escribir _todo_ desde 0.
 
 ### Features (¿Qué hay nuevo?)
-- El comando de barra [`eval.ts`](src\interactions\slash_commands\dev\eval.ts), que permite evaluar expresiones en el entorno a través de Discord
-- El comando de barra [`reiniciar.ts`](src\interactions\slash_commands\dev\reiniciar.ts), que permite reiniciar el bot (tanto proceso como cliente ws a distanica).
-- Hemos reorganizado los comandos de barra en carpetas que van acorde a las categorias que ya hemos definido en [`CommandCategory.ts`](src\enums\CommandCategory.ts)
+- El comando de barra [`eval.ts`](src/interactions/slash_commands/dev/eval.ts), que permite evaluar expresiones en el entorno a través de Discord
+- El comando de barra [`reiniciar.ts`](src/interactions/slash_commands/dev/reiniciar.ts), que permite reiniciar el bot (tanto proceso como cliente ws a distanica).
+- Hemos reorganizado los comandos de barra en carpetas que van acorde a las categorias que ya hemos definido en [`CommandCategory.ts`](src/enums/CommandCategory.ts)
 
 > [!WARNING]
-> El comando `/eval` puede ser la perdición en manos de la persona equivocada. Aún estando marcado como [`CommandCategory#DEV`](src\enums\CommandCategory.ts#L6), que, consecuentemente, deja que solo los desarrolladores cuyos IDs están en la propiedad [`Client#developers`](C:\Users\hsmad\proyectos\discord-bot-example\src\classes\Client.ts#L30) ejecuten el comando, asegurate que cuando corras el bot, reconozcas *TODOS* los IDs.
+> El comando `/eval` puede ser la perdición en manos de la persona equivocada. Aún estando marcado como [`CommandCategory#DEV`](src/enums/CommandCategory.ts#L6), que, consecuentemente, deja que solo los desarrolladores cuyos IDs están en la propiedad [`Client#developers`](C:/Users/hsmad/proyectos/discord-bot-example/src/classes/Client.ts#L30) ejecuten el comando, asegurate que cuando corras el bot, reconozcas *TODOS* los IDs.
 
 ### Bug fixes
 ¡Ninguno!
@@ -147,3 +147,15 @@ El repositorio va a estar un tiempo inactivo, pero iremos documentando todo el p
 
 "Bro rafa tengo una idea"
 > @CyRstudent el día antes de empezar este repo
+
+## v1.1.6 - We're still standing
+Una última cosa - Nos hemos dado cuenta de que podemos usar un buffer circular mejor para usar mucha menos memoria y así aumentar la capacidad total de logs que podemos almacenar sin coste alguno.
+
+### Features (¿Qué hay nuevo?)
+- Lo que hemos dicho, en [`BoundedQueue.ts`](src/classes/BoundedQueue.ts)
+
+### Bug fixes
+¡Ninguno!
+
+### What's next? / ¿Qué va a ser lo siguiente?
+Documentación, y un mejor README.md

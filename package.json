@@ -30,9 +30,12 @@
 		"url": "https://github.com/PipsaDevs/discord-bot-example/issues"
 	},
 	"homepage": "https://github.com/PipsaDevs/discord-bot-example#readme",
+	"overrides": {
+		"minimatch": "^11.0.3"
+	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^25.8.0",
+		"@types/node": "^25.9.9",
 		"@typescript-eslint/eslint-plugin": "^8.59.2",
 		"@typescript-eslint/parser": "^8.59.2",
 		"eslint": "^10.3.0",

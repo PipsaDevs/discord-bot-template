@@ -13,8 +13,7 @@ const buttonHandler: InteractionHandler<ButtonInteraction> = {
 			return;
 		}
 		const opc = Object.values(ButtonOPCodes).find((v) => v === args[0]) as
-			| ButtonOPCodes
-			| undefined;
+			ButtonOPCodes | undefined;
 
 		if (!opc) {
 			client.emit(

@@ -159,3 +159,17 @@ Una última cosa - Nos hemos dado cuenta de que podemos usar un buffer circular 
 
 ### What's next? / ¿Qué va a ser lo siguiente?
 Documentación, y un mejor README.md
+
+## v1.1.7 - Un video ma mi gente
+Como iba a usar esta plantilla de nuevo decidí que mejor me asegurara de que no tuviera errores, y aparte de actualizar dependencias he refactorizado un par de cosas.
+
+### Features (¿Qué hay nuevo?)
+- He refactorizado el método [`Client#start()`](src/classes/Client.ts#L90) en 2 métodos para lo siguiente:
+- Refactorizar [`deploySlashCommands.ts`](src/util/deploySlashCommands.ts) con tal de que no se tenga que llamar a la API y hacer todo el paripé
+- Dependencias actualizadas con tal de evitar vulnerabilidades
+
+### Bug fixes
+- Comprobar si la interacción estuviera [deferred](src/events/interactionCreate.ts#L33)
+
+### What's next? / ¿Qué va a ser lo siguiente?
+Nada, ¿no?

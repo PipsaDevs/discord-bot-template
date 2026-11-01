@@ -30,7 +30,7 @@ const interactionCreate: Event<[Interaction]> = {
 			const parsed = toError(err);
 			client.emit('error', parsed);
 			if (interaction.isRepliable()) {
-				if (interaction.replied) {
+				if (interaction.replied || interaction.deferred) {
 					await interaction.editReply(
 						'¡He tenido un error intentando ejecutar ese comando! Considera reportar este incidente a mi desarrollador.',
 					);

@@ -34,7 +34,6 @@ class Client extends djs.Client {
 			intents: [
 				djs.GatewayIntentBits.Guilds,
 				djs.GatewayIntentBits.GuildMessages,
-				djs.GatewayIntentBits.MessageContent,
 			],
 		});
 		this.logs = new BoundedQueue<Log>(logCapacity);

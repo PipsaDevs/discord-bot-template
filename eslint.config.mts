@@ -18,23 +18,13 @@ const config: ConfigArray = [
 				...globals.node,
 			},
 			parserOptions: {
-				projectService: true,
+				project: ['./tsconfig.json', './tsconfig.node.json'],
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
 		rules: {
 			// Enforce Prettier formatting as ESLint errors
-			'prettier/prettier': [
-				'error',
-				{
-					semi: true,
-					trailingComma: 'all',
-					singleQuote: true,
-					printWidth: 80,
-					tabWidth: 4,
-					useTabs: true,
-				},
-			],
+			'prettier/prettier': 'error',
 
 			// TypeScript
 			'@typescript-eslint/no-unused-vars': [

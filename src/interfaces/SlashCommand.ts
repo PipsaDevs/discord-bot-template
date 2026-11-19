@@ -8,11 +8,17 @@ import type {
 import type { Client } from '../classes/Client.js';
 import type CommandCategory from '../enums/CommandCategory.js';
 
+/**
+ * Union type to define all possible slash commands data
+ */
 export type SlashCommandData =
 	| SlashCommandBuilder
 	| SlashCommandOptionsOnlyBuilder
 	| SlashCommandSubcommandsOnlyBuilder;
 
+/**
+ * The structure of a slash command
+ */
 export interface SlashCommand {
 	data: SlashCommandData;
 	category: CommandCategory;

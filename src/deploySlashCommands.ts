@@ -12,6 +12,9 @@ if (!token) {
 }
 const client = new Client(50, token);
 
+/**
+ * Initializes the essential parts of the client to push the command data to the Discord Rest API
+ */
 async function main() {
 	await client.loadAll();
 	const usr = (await client.rest.get(Routes.user('@me'))) as APIUser;

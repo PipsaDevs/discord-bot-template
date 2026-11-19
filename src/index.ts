@@ -11,6 +11,9 @@ if (!token) {
 
 const client = new Client(10000, token);
 
+/**
+ * Starts the bot
+ */
 async function main() {
 	await client.start();
 }

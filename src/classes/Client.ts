@@ -14,6 +14,9 @@ import type { ButtonCommand } from '../interfaces/ButtonCommand.js';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distRoot = path.resolve(__dirname, '..');
 
+/**
+ * The custom client class
+ */
 class Client extends djs.Client {
 	logs: BoundedQueue<Log>;
 	interactionHandlers: djs.Collection<
@@ -87,6 +90,9 @@ class Client extends djs.Client {
 		}
 	}
 
+	/**
+	 * Loads all collections, those are: Slash commands, handlers, button commands and events
+	 */
 	async loadAll(): Promise<void> {
 		await this.loadToCollection(
 			'interactions/slash_commands',
@@ -120,7 +126,7 @@ class Client extends djs.Client {
 		}
 	}
 	/**
-	 * Attaches the previous loggers, loads the events and logs in the client.
+	 * Attaches the previous loggers, loads all collections and logs in the client.
 	 */
 	async start(): Promise<void> {
 		await this.loadAll();

@@ -11,9 +11,18 @@ export default class BoundedQueue<T> {
 	private _tail = 0;
 	private _size = 0;
 
+	/**
+	 * Constructor for the BoundedQueue, including the specified type
+	 * @param capacity The max amount of events which the data structure will store
+	 */
 	constructor(capacity: number) {
 		this._capacity = capacity;
 	}
+
+	/**
+	 * The items stored in the array
+	 * @returns An array of elements ordered by arrival
+	 */
 
 	get items() {
 		const res: T[] = [];
@@ -24,13 +33,25 @@ export default class BoundedQueue<T> {
 		}
 		return res;
 	}
+	/**
+	 * Capacity of the queue
+	 * @returns A number indicating the capacity
+	 */
 	get capacity() {
 		return this._capacity;
 	}
+	/**
+	 * Actual size of the queue
+	 * @returns How many elements are stored at the moment
+	 */
 	get size() {
 		return this._size;
 	}
 
+	/**
+	 * Pushes to the bounded queue the specified elements
+	 * @param items Array of items of the specified type to add
+	 */
 	push_back(...items: T[]): void {
 		for (const item of items) {
 			this._items[this._tail] = item;

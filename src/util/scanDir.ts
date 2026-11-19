@@ -1,5 +1,10 @@
 import { readdir } from 'fs/promises';
 
+/**
+ * Function to recursively scan a specified directory
+ * @param baseDir The base directory to be scanned
+ * @returns An array of strings containing the path to every file scanned which ends with js or ts
+ */
 async function scanDir(baseDir: string): Promise<string[]> {
 	const result: string[] = [];
 	const entries = await readdir(baseDir, { withFileTypes: true });

@@ -2,14 +2,12 @@ import {
 	ButtonStyle,
 	type GuildMemberRoleManager,
 	PermissionFlagsBits,
-} from 'discord.js';
-import CommandCategory from '../../../enums/CommandCategory.js';
-import type { SlashCommand } from '../../../interfaces/SlashCommand.js';
-import {
 	ActionRowBuilder,
 	ButtonBuilder,
 	SlashCommandBuilder,
-} from '@discordjs/builders';
+} from 'discord.js';
+import CommandCategory from '../../../enums/CommandCategory.js';
+import type { SlashCommand } from '../../../interfaces/SlashCommand.js';
 import ButtonOPCodes from '../../../enums/ButtonOPCodes.js';
 
 const rCmd: SlashCommand = {

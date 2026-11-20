@@ -1,3 +1,6 @@
+/**
+ * Enumeration used to define the operation of a button
+ */
 enum ButtonOPCodes {
 	ignoreAction = '0',
 	giveRole = '1',

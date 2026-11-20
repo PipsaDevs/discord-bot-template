@@ -14,6 +14,9 @@ import type { ButtonCommand } from '../interfaces/ButtonCommand.js';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distRoot = path.resolve(__dirname, '..');
 
+/**
+ * The custom client class
+ */
 class Client extends djs.Client {
 	logs: BoundedQueue<Log>;
 	interactionHandlers: djs.Collection<
@@ -23,13 +26,22 @@ class Client extends djs.Client {
 	slashCommands: djs.Collection<string, SlashCommand>;
 	buttonCommands: djs.Collection<ButtonOPCodes, ButtonCommand>;
 	developers: string[];
+	useEval: boolean;
 	/**
 	 * Instantiates an object of class Client
 	 * @param logCapacity The capacity of the logs storage
 	 * @param token The token of your bot
-	 * @param developers An array of the ids of those whom you might consider as developers with access to developer-grade commands. If left empty, said array will be the owner(s) of the application
+	 * @param developers An array of the ids of those whom you might consider as developers with access to developer-grade commands
+	 * @defaultValue `[this.application.owner]`
+	 * @param useEval Whether the eval command will be allowed for use
+	 * @defaultValue `false``
 	 */
-	constructor(logCapacity: number, token: string, developers?: string[]) {
+	constructor(
+		logCapacity: number,
+		token: string,
+		developers?: string[],
+		useEval?: boolean,
+	) {
 		super({
 			intents: [
 				djs.GatewayIntentBits.Guilds,
@@ -43,6 +55,7 @@ class Client extends djs.Client {
 		this.slashCommands = new djs.Collection();
 		this.buttonCommands = new djs.Collection();
 		this.developers = developers ?? [];
+		this.useEval = useEval ?? false;
 	}
 
 	/**
@@ -87,6 +100,9 @@ class Client extends djs.Client {
 		}
 	}
 
+	/**
+	 * Loads all collections, those are: Slash commands, handlers, button commands and events
+	 */
 	async loadAll(): Promise<void> {
 		await this.loadToCollection(
 			'interactions/slash_commands',
@@ -120,7 +136,7 @@ class Client extends djs.Client {
 		}
 	}
 	/**
-	 * Attaches the previous loggers, loads the events and logs in the client.
+	 * Attaches the previous loggers, loads all collections and logs in the client.
 	 */
 	async start(): Promise<void> {
 		await this.loadAll();

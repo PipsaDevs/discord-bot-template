@@ -1,11 +1,7 @@
 {
+	"extends": "./tsconfig.json",
+	"files": ["eslint.config.mts"],
 	"compilerOptions": {
-		"composite": true,
-		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
-		"target": "ESNext",
-		"types": ["node"],
-		"allowSyntheticDefaultImports": true,
-	},
-	"include": ["eslint.config.mts"],
+		"noEmit": true
+	}
 }

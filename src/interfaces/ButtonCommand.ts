@@ -2,6 +2,9 @@ import type { ButtonInteraction } from 'discord.js';
 import type { Client } from '../classes/Client.js';
 import type ButtonOPCodes from '../enums/ButtonOPCodes.js';
 
+/**
+ * The structure of a button command
+ */
 export interface ButtonCommand {
 	opcode: ButtonOPCodes;
 	execute: (

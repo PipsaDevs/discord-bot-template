@@ -3,12 +3,18 @@ import { Client } from './classes/Client.js';
 import { Routes } from 'discord.js';
 import type { APIUser } from 'discord.js';
 
-if (!process.env.DISCORD_TOKEN) {
-	throw new Error('Variable DISCORD_TOKEN has not been found in process.env');
+const token: string | undefined =
+	process.env.TESTING === '1'
+		? process.env.DISCORD_TOKEN_TESTING
+		: process.env.DISCORD_TOKEN;
+if (!token) {
+	throw new Error('Token not found in .env');
 }
+const client = new Client(50, token);
 
-const client = new Client(50, process.env.DISCORD_TOKEN);
-
+/**
+ * Initializes the essential parts of the client to push the command data to the Discord Rest API
+ */
 async function main() {
 	await client.loadAll();
 	const usr = (await client.rest.get(Routes.user('@me'))) as APIUser;

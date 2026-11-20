@@ -1,0 +1,11 @@
+{
+	"tsconfig": "tsconfig.json",
+	"entryPoints": ["src"],
+	"entryPointStrategy": "expand",
+	"readme": "README.md",
+	"plugin": ["@clean-jsdoc-theme/typedoc"],
+	"outputs": [{ "name": "clean-jsdoc-theme", "path": "docs" }],
+	"cleanJsdocTheme": {
+		"siteName": "Discord Bot Template"
+	}
+}

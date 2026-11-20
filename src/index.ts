@@ -1,12 +1,19 @@
 import 'dotenv/config';
 import { Client } from './classes/Client.js';
 
-if (!process.env.DISCORD_TOKEN) {
-	throw new Error('Variable DISCORD_TOKEN has not been found in process.env');
+const token: string | undefined =
+	process.env.TESTING === '1'
+		? process.env.DISCORD_TOKEN_TESTING
+		: process.env.DISCORD_TOKEN;
+if (!token) {
+	throw new Error('Token not found in .env file');
 }
 
-const client = new Client(10000, process.env.DISCORD_TOKEN);
+const client = new Client(10000, token);
 
+/**
+ * Starts the bot
+ */
 async function main() {
 	await client.start();
 }

@@ -48,6 +48,12 @@ const hCmd: SlashCommand = {
 		}),
 	category: CommandCategory.DEV,
 	async execute(interaction, _client) {
+		if (!_client.useEval) {
+			await interaction.reply(
+				'El comando no se ha habilitado en el cliente.',
+			);
+			return;
+		}
 		// Get the options
 		const expression = interaction.options.getString('expresión', true);
 		const ephem = interaction.options.getBoolean('invisible', true);

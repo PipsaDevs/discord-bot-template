@@ -1,32 +1,32 @@
 {
 	"compilerOptions": {
+		// Dirs
 		"rootDir": "./src",
 		"outDir": "./dist",
-		"declarationDir": "dist/types",
+
+		// Env settings
 		"module": "nodenext",
-		"target": "esnext",
+		"target": "es2022",
+		"lib": ["ES2022"],
 		"types": ["node"],
-		"lib": ["esnext"],
-		"sourceMap": true,
+
+		// Outputs
 		"declaration": true,
 		"declarationMap": true,
+		"sourceMap": true,
+
+		// Typecheck
+		"strict": true,
 		"noUncheckedIndexedAccess": true,
 		"exactOptionalPropertyTypes": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-		"strict": true,
+
+		// ESM & Tooling compatibility
 		"verbatimModuleSyntax": true,
 		"isolatedModules": true,
 		"noUncheckedSideEffectImports": true,
 		"moduleDetection": "force",
-		"skipLibCheck": true,
+		"skipLibCheck": true
 	},
 	"include": ["src/**/*"],
-	"references": [
-		{
-			"path": "./tsconfig.node.json",
-		},
-	],
+	"exclude": ["src/**/*.md"]
 }

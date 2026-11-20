@@ -1,20 +1,23 @@
 {
 	"name": "discord-bot-template",
-	"version": "1.1.7",
+	"version": "1.2.0",
 	"description": "¡Un bot de Discord listo para usar!",
 	"type": "module",
-	"main": "src/index.ts",
+	"main": "./dist/index.js",
 	"scripts": {
 		"start": "node dist/index.js",
 		"dev": "nodemon",
 		"prod": "pm2 start dist/index.js --name bot",
-		"lint": "eslint src --fix",
-		"lint:check": "eslint src",
-		"format": "prettier --write src",
-		"format:check": "prettier --check \"src/**/*.ts\"",
 		"build": "tsc",
-		"build:watch": "tsc --watch",
-		"deploy": "node dist/deploySlashCommands.js"
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"check": "pnpm format:check && pnpm lint",
+		"fix": "pnpm format && pnpm lint:fix",
+		"typecheck": "tsc --noEmit",
+		"deploy": "node dist/deploySlashCommands.js",
+		"docs:dev": "typedoc && pnpm dlx serve docs"
 	},
 	"repository": {
 		"type": "git",
@@ -33,24 +36,33 @@
 	"overrides": {
 		"minimatch": "^11.0.3"
 	},
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.21.0",
+			"onFail": "download"
+		}
+	},
+	"packageManager": "pnpm@12.21.0",
 	"devDependencies": {
+		"@clean-jsdoc-theme/typedoc": "^5.3.0",
 		"@eslint/js": "^10.0.1",
-		"@types/node": "^25.9.9",
-		"@typescript-eslint/eslint-plugin": "^8.59.2",
-		"@typescript-eslint/parser": "^8.59.2",
-		"eslint": "^10.3.0",
+		"@types/node": "^26.6.6",
+		"@typescript/native": "npm:typescript@^7.0.2",
+		"eslint": "^10.14.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-prettier": "^5.5.5",
-		"globals": "^17.6.0",
+		"eslint-plugin-prettier": "^5.5.7",
+		"globals": "^17.14.0",
 		"jiti": "^2.7.0",
 		"nodemon": "^3.1.14",
-		"prettier": "^3.8.3",
-		"tsx": "^4.22.3",
-		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.59.2"
+		"prettier": "^3.10.0",
+		"tsx": "^4.23.15",
+		"typedoc": "^0.28.20",
+		"typescript": "npm:@typescript/typescript6@^6.0.2",
+		"typescript-eslint": "^8.72.2"
 	},
 	"dependencies": {
-		"discord.js": "^14.28.0",
-		"dotenv": "^17.4.2"
+		"discord.js": "^14.28.1",
+		"dotenv": "^18.0.10"
 	}
 }

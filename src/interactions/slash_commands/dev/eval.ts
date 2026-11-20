@@ -52,6 +52,7 @@ const hCmd: SlashCommand = {
 			await interaction.reply(
 				'El comando no se ha habilitado en el cliente.',
 			);
+			return;
 		}
 		// Get the options
 		const expression = interaction.options.getString('expresión', true);

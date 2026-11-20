@@ -244,9 +244,9 @@ Una vez que ya tengo más tiempo y más vida, he empezado a pensar en los proble
 La siguiente versión, como ya he dicho previamente, va a ser la `v2.0.0`, motivada por las siguientes razones:
 
 - Empezar a usar la template es SUPER ineficiente, una vez que la copias con el botón de GitHub tienes que hacer lo siguiente:
-	- Renombrar el paquete
-	- Cambiar las urls de GitHub
-	- Asegurarte de que las versiones de los paquetes están actualizadas
+    - Renombrar el paquete
+    - Cambiar las urls de GitHub
+    - Asegurarte de que las versiones de los paquetes están actualizadas
 - La estructura de desarrollo de comandos de cualquier tipo deja mucho que desear; se usan muchos default exports, y despues eso tambien afecta a la documentación.
 - Hay funciones que verdaderamente se sostienen a base de hopes and prayers
 - No hay tests para testear absolutamente nada; obviamente hay cosas que no se pueden testear automaticamente (ejem ejem, todo lo que tenga que ver directamente con la API de Discord), pero aún así se pueden implementar tests para las distintas utilidades que no tienen que ver con la API.

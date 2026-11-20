@@ -26,13 +26,22 @@ class Client extends djs.Client {
 	slashCommands: djs.Collection<string, SlashCommand>;
 	buttonCommands: djs.Collection<ButtonOPCodes, ButtonCommand>;
 	developers: string[];
+	useEval: boolean;
 	/**
 	 * Instantiates an object of class Client
 	 * @param logCapacity The capacity of the logs storage
 	 * @param token The token of your bot
-	 * @param developers An array of the ids of those whom you might consider as developers with access to developer-grade commands. If left empty, said array will be the owner(s) of the application
+	 * @param developers An array of the ids of those whom you might consider as developers with access to developer-grade commands
+	 * @defaultValue `[this.application.owner]`
+	 * @param useEval Whether the eval command will be allowed for use
+	 * @defaultValue `false``
 	 */
-	constructor(logCapacity: number, token: string, developers?: string[]) {
+	constructor(
+		logCapacity: number,
+		token: string,
+		developers?: string[],
+		useEval?: boolean,
+	) {
 		super({
 			intents: [
 				djs.GatewayIntentBits.Guilds,
@@ -46,6 +55,7 @@ class Client extends djs.Client {
 		this.slashCommands = new djs.Collection();
 		this.buttonCommands = new djs.Collection();
 		this.developers = developers ?? [];
+		this.useEval = useEval ?? false;
 	}
 
 	/**

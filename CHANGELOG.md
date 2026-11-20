@@ -218,3 +218,42 @@ Como iba a usar esta plantilla de nuevo decidí que mejor me asegurara de que no
 ### What's next? / ¿Qué va a ser lo siguiente?
 
 Nada, ¿no?
+
+## v1.2.0 - The calm before the storm
+
+Una vez que ya tengo más tiempo y más vida, he empezado a pensar en los problemas que tiene esta plantilla, y realmente tiene una pila, así que habiendo hecho unos cambios que yo consideraba necesarios, esta versión va a ser la última hasta la v2.0.0.
+
+### Features (¿Qué hay nuevo?)
+
+- Migración a [`pnpm`](https://pnpm.io/)
+- Documentación actualizada en todas las clases, interfaces y enums
+- El ejemplo para .env ya no se llama `EXAMPLE.env`, sino [`.example.env`](./.env.example), que suele ser el standard de la industria
+- Nueva variable de entorno [`DISCORD_TOKEN_TESTING`](./.env.example#L2) que nos permite testear el bot con otra aplicación distinta, así como una pila de implementaciones relacionadas con el testing
+- Una pagina de documentación autogenerada para facilitar la navegación del repositorio, disponible corriendo `pnpm run docs:dev`
+
+### Bug fixes
+
+- Actualización de las dependencias del paquetes
+- Se han quitado workflows totalmente innecesarios
+- El punto de entrada en dist/index.js, que tampoco tiene mucho sentido pero bueno
+- Los archivos [`tsconfig.json`](./tsconfig.json) y [`tsconfig.node.json`](./tsconfig.node.json) se han actualizado para mantener lo justo
+- Ahora, el constructor de la clase Client se permite introducir una variable booleana que configura si el comando de barra `/eval` se puede usar o no
+
+### What's next? / ¿Qué va a ser lo siguiente?
+
+La siguiente versión, como ya he dicho previamente, va a ser la `v2.0.0`, motivada por las siguientes razones:
+
+- Empezar a usar la template es SUPER ineficiente, una vez que la copias con el botón de GitHub tienes que hacer lo siguiente:
+	- Renombrar el paquete
+	- Cambiar las urls de GitHub
+	- Asegurarte de que las versiones de los paquetes están actualizadas
+- La estructura de desarrollo de comandos de cualquier tipo deja mucho que desear; se usan muchos default exports, y despues eso tambien afecta a la documentación.
+- Hay funciones que verdaderamente se sostienen a base de hopes and prayers
+- No hay tests para testear absolutamente nada; obviamente hay cosas que no se pueden testear automaticamente (ejem ejem, todo lo que tenga que ver directamente con la API de Discord), pero aún así se pueden implementar tests para las distintas utilidades que no tienen que ver con la API.
+- Prettier y ESLint formatean absolutamente todo, así que eso tendré que configurarlo tambien
+- La base tampoco está del todo documentada, así que alguien que no tiene ni idea de como está organizada la base, aunque esté bien delimitada, le va a ser un reto importante.
+
+Con lo cual, la siguiente versión traerá consigo una remodelación de la base de manera significante.
+
+> [!WARNING]
+> Aunque la siguiente versión sea major, se recomienda actualizar a esta si se usa esta plantilla, ya que viene con varios bug fixes y varias (posibles) vulnerabilidades arregladas

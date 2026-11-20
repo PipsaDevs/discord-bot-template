@@ -18,15 +18,15 @@ cd discord-bot-template
 3. Instalar dependencias
 
 ```sh
-npm install
+pnpm install
 ```
 
 4. Variables de entorno
-   Renombra el archivo EXAMPLE.env a .env y pon la token de tu bot que puedes obtener a través del Portal de Desarrolladores de Discord
+   Renombra el archivo .env.example a .env y pon la token de tu bot que puedes obtener a través del Portal de Desarrolladores de Discord
 
 5. Iniciar el programa
 
 ```sh
-npm run build
-npm run start
+pnpm run build
+pnpm run start
 ```

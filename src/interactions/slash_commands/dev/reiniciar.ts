@@ -29,8 +29,12 @@ const rCmd: SlashCommand = {
 		});
 		const target = interaction.options.getString('tipo', true);
 		if (target === 'w') {
+			const token = client.token;
+			if (!token) {
+				throw new Error('No client token present');
+			}
 			await client.destroy();
-			await client.login(process.env.DISCORD_TOKEN);
+			await client.login(token);
 			const readyTime = client.readyTimestamp ?? Date.now();
 			await interaction.editReply(
 				`¡Listo! He tardado ${readyTime - interaction.createdTimestamp} ms en reiniciar mi cliente WebSocket`,

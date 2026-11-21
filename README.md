@@ -1,5 +1,34 @@
 # discord-bot-template, una plantilla lista para usar
 
+## Instalador
+
+Puedes reutilizar la plantilla o descargar el instalador directamente.
+
+### Refrescar una copia existente
+
+Desde la raíz de un clon o de un repositorio creado con la plantilla:
+
+```sh
+./install.sh
+```
+
+El instalador conserva los scripts, el código fuente y los remotos existentes.
+Elimina `package.json`, `pnpm-lock.yaml` y `node_modules`, vuelve a resolver
+todas las dependencias sin versiones antiguas y genera un lockfile nuevo.
+
+### Descargar e instalar en una carpeta nueva
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/PipsaDevs/discord-bot-template/main/install.sh | bash -s -- --directory mi-bot
+```
+
+Sin `--directory`, el script pregunta por el nombre de la carpeta. También puede
+configurar el remoto inmediatamente:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/PipsaDevs/discord-bot-template/main/install.sh | bash -s -- --directory mi-bot --remote git@github.com:usuario/mi-bot.git
+```
+
 ## Como empezar a desarrollar
 
 1. Requisitos previos

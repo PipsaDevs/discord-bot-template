@@ -5,7 +5,7 @@ import { readdir } from 'fs/promises';
  * @param baseDir The base directory to be scanned
  * @returns An array of strings containing the path to every file scanned which ends with js or ts
  */
-async function scanDir(baseDir: string): Promise<string[]> {
+export async function scanDir(baseDir: string): Promise<string[]> {
 	const result: string[] = [];
 	const entries = await readdir(baseDir, { withFileTypes: true });
 	for (const entry of entries) {
@@ -18,5 +18,3 @@ async function scanDir(baseDir: string): Promise<string[]> {
 	}
 	return result;
 }
-
-export { scanDir };

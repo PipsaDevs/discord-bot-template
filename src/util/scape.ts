@@ -4,7 +4,6 @@
  * @param text The text to introduce inside the scaped block
  * @returns The formatted string ready to send to Discord
  */
-const scape = (type: string, text: string) => {
+export function escape(type: string, text: string): string {
 	return `\`\`\`${type}\n${text}\n\`\`\``;
-};
-export { scape };
+}

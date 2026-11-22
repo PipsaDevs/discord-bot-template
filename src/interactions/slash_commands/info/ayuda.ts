@@ -4,7 +4,7 @@ import {
 	SlashCommandBuilder,
 	type APIEmbedField,
 } from 'discord.js';
-import type { SlashCommand } from '../../../interfaces/SlashCommand.js';
+import type { SlashCommand } from '../../../interfaces/index.js';
 import CommandCategory from '../../../enums/CommandCategory.js';
 
 const hCmd: SlashCommand = {

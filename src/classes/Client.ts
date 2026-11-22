@@ -2,14 +2,16 @@ import LogType from '../enums/LogType.js';
 import BoundedQueue from './BoundedQueue.js';
 import Log from './Log.js';
 import type { Event } from '../interfaces/Event.js';
-import type { SlashCommand } from '../interfaces/SlashCommand.js';
+import type {
+	SlashCommand,
+	InteractionHandler,
+	ButtonCommand,
+} from '../interfaces/index.js';
 import * as djs from 'discord.js';
 import { scanDir } from '../util/scanDir.js';
-import type { InteractionHandler } from '../interfaces/InteractionHandler.js';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 import type ButtonOPCodes from '../enums/ButtonOPCodes.js';
-import type { ButtonCommand } from '../interfaces/ButtonCommand.js';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distRoot = path.resolve(__dirname, '..');

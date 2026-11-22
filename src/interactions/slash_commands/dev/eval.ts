@@ -3,7 +3,7 @@ import {
 	EmbedBuilder,
 	SlashCommandBuilder,
 } from 'discord.js';
-import type { SlashCommand } from '../../../interfaces/SlashCommand.js';
+import type { SlashCommand } from '../../../interfaces/index.js';
 import CommandCategory from '../../../enums/CommandCategory.js';
 import { transpile } from 'typescript';
 import { inspect } from 'node:util';

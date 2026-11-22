@@ -1,5 +1,5 @@
 import type LogType from '../enums/LogType.js';
-import type { LogInterface } from '../interfaces/LogInterface.js';
+import type { LogInterface } from '../interfaces/index.js';
 
 /**
  * This is the log class

@@ -1,4 +1,4 @@
-import type { ButtonCommand } from '../../interfaces/ButtonCommand.js';
+import type { ButtonCommand } from '../../interfaces/index.js';
 import ButtonOPCodes from '../../enums/ButtonOPCodes.js';
 import type { GuildMemberRoleManager } from 'discord.js';
 

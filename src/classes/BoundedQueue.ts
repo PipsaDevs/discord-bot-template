@@ -4,7 +4,7 @@
  * it will eliminate those elements who entered first
  */
 
-export default class BoundedQueue<T> {
+export class BoundedQueue<T> {
 	private _items: T[] = [];
 	private _capacity: number;
 	private _head = 0;

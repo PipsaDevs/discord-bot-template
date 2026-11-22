@@ -6,7 +6,7 @@ import type { LogInterface } from '../interfaces/index.js';
  * HERE is where we finally implement both the Log type and the interface
  * It is a really basic implementation of the interface which allows to store the information of the interface and also generate a date based on the time stamp
  */
-export default class Log implements LogInterface {
+export class Log implements LogInterface {
 	type: LogType;
 	timeStamp: number;
 	message: string;

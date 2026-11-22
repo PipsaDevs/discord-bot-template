@@ -17,7 +17,8 @@
 		"fix": "pnpm format && pnpm lint:fix",
 		"typecheck": "tsc --noEmit",
 		"deploy": "node dist/deploySlashCommands.js",
-		"docs:dev": "typedoc && pnpm dlx serve docs"
+		"docs:dev": "typedoc && pnpm dlx serve docs",
+		"installer": "pnpm run dist/installer.js"
 	},
 	"repository": {
 		"type": "git",

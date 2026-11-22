@@ -1,7 +1,7 @@
 /**
  * Enumeration used to define the operation of a button
  */
-enum ButtonOPCodes {
+export enum ButtonOPCodes {
 	ignoreAction = '0',
 	giveRole = '1',
 	/**
@@ -9,5 +9,3 @@ enum ButtonOPCodes {
 	 * When adding a Button OP Code, please make sure to write down how to split arguments and such
 	 */
 }
-
-export default ButtonOPCodes;

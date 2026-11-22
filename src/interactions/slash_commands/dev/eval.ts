@@ -5,10 +5,11 @@ import {
 } from 'discord.js';
 import type { SlashCommand } from '../../../interfaces/index.js';
 import { CommandCategory } from '../../../enums/index.js';
+import { toError, escape } from '../../../util/index.js';
+
 import { transpile } from 'typescript';
 import { inspect } from 'node:util';
-import { toError } from '../../../util/toError.js';
-import { scape } from '../../../util/scape.js';
+
 const hCmd: SlashCommand = {
 	data: new SlashCommandBuilder()
 		.setName('eval')
@@ -97,12 +98,12 @@ const hCmd: SlashCommand = {
 		// At the same time, we'll build the embed
 		const cutFiles: AttachmentBuilder[] = [];
 		const embed = new EmbedBuilder();
-		let embeddedExpression = scape(lang, expression);
-		let embeddedOutput = scape(lang, output);
+		let embeddedExpression = escape(lang, expression);
+		let embeddedOutput = escape(lang, output);
 
 		if (embeddedExpression.length > 1024) {
 			const fname = `expression.${lang}`;
-			embeddedExpression = scape(
+			embeddedExpression = escape(
 				'',
 				`La expresión se encuentra en el archivo adjunto ${fname}`,
 			);
@@ -114,10 +115,10 @@ const hCmd: SlashCommand = {
 			value: embeddedExpression,
 		});
 		if (wasExpModified) {
-			let embeddedModified = scape('js', convertedExpression);
+			let embeddedModified = escape('js', convertedExpression);
 			if (embeddedModified.length > 1024) {
 				const fname = 'converted.js';
-				embeddedModified = scape(
+				embeddedModified = escape(
 					'',
 					`La expresión convertida se encuentra en el archivo adjunto ${fname}`,
 				);
@@ -131,7 +132,7 @@ const hCmd: SlashCommand = {
 		}
 		if (embeddedOutput.length > 1024) {
 			const fname = 'output.txt';
-			embeddedOutput = scape(
+			embeddedOutput = escape(
 				'',
 				`La salida se encuentra en el archivo adjunto ${fname}`,
 			);

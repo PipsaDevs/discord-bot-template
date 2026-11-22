@@ -1,6 +1,6 @@
 import type { SlashCommand } from '../../../interfaces/index.js';
 import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
-import { scape } from '../../../util/scape.js';
+import { escape } from '../../../util/index.js';
 import { CommandCategory } from '../../../enums/index.js';
 const pCmd: SlashCommand = {
 	data: new SlashCommandBuilder().setName('ping').setDescription('Pong!'),
@@ -17,12 +17,12 @@ const pCmd: SlashCommand = {
 			.addFields(
 				{
 					name: 'Websocket',
-					value: scape('diff', `${wsStr} ms`),
+					value: escape('diff', `${wsStr} ms`),
 					inline: true,
 				},
 				{
 					name: 'Bot',
-					value: scape('diff', `+${sum} ms`),
+					value: escape('diff', `+${sum} ms`),
 					inline: true,
 				},
 			)

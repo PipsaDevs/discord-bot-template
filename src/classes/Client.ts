@@ -8,7 +8,7 @@ import type {
 	Event,
 } from '../interfaces/index.js';
 import * as djs from 'discord.js';
-import { scanDir } from '../util/scanDir.js';
+import { scanDir } from '../util/index.js';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 

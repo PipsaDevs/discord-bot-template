@@ -1,11 +1,11 @@
 import LogType from '../enums/LogType.js';
 import BoundedQueue from './BoundedQueue.js';
 import Log from './Log.js';
-import type { Event } from '../interfaces/Event.js';
 import type {
 	SlashCommand,
 	InteractionHandler,
 	ButtonCommand,
+	Event,
 } from '../interfaces/index.js';
 import * as djs from 'discord.js';
 import { scanDir } from '../util/scanDir.js';

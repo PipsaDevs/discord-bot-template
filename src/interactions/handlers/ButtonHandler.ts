@@ -1,5 +1,5 @@
 import { type ButtonInteraction, InteractionType } from 'discord.js';
-import type { InteractionHandler } from '../../interfaces/InteractionHandler.js';
+import type { InteractionHandler } from '../../interfaces/index.js';
 import { ButtonOPCodes } from '../../enums/index.js';
 
 const buttonHandler: InteractionHandler<ButtonInteraction> = {

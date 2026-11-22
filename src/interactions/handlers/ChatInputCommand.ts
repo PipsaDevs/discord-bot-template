@@ -1,5 +1,5 @@
 import { InteractionType, type ChatInputCommandInteraction } from 'discord.js';
-import type { InteractionHandler } from '../../interfaces/InteractionHandler.js';
+import type { InteractionHandler } from '../../interfaces/index.js';
 import { CommandCategory } from '../../enums/index.js';
 
 const slashHandler: InteractionHandler<ChatInputCommandInteraction> = {

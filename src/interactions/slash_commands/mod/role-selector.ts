@@ -7,7 +7,7 @@ import {
 	SlashCommandBuilder,
 } from 'discord.js';
 import { CommandCategory, ButtonOPCodes } from '../../../enums/index.js';
-import type { SlashCommand } from '../../../interfaces/SlashCommand.js';
+import type { SlashCommand } from '../../../interfaces/index.js';
 
 const rCmd: SlashCommand = {
 	data: new SlashCommandBuilder()

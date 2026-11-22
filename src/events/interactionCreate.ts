@@ -1,4 +1,4 @@
-import type { Event } from '../interfaces/Event.js';
+import type { Event } from '../interfaces/index.js';
 import { Events } from 'discord.js';
 import type { Interaction } from 'discord.js';
 import { toError } from '../util/toError.js';

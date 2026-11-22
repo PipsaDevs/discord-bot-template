@@ -1,4 +1,4 @@
-import type { Event } from '../interfaces/Event.js';
+import type { Event } from '../interfaces/index.js';
 import { Events } from 'discord.js';
 
 const clientReady: Event<[]> = {

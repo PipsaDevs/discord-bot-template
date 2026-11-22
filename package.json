@@ -45,6 +45,7 @@
 	},
 	"packageManager": "pnpm@12.21.0",
 	"devDependencies": {
+		"@clack/prompts": "^1.9.0",
 		"@clean-jsdoc-theme/typedoc": "^5.3.0",
 		"@eslint/js": "^10.0.1",
 		"@types/node": "^26.6.6",

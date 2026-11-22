@@ -1,6 +1,5 @@
 import { LogType, type ButtonOPCodes } from '../enums/index.js';
-import BoundedQueue from './BoundedQueue.js';
-import Log from './Log.js';
+import { Log, BoundedQueue } from './index.js';
 import type {
 	SlashCommand,
 	InteractionHandler,
@@ -18,7 +17,7 @@ const distRoot = path.resolve(__dirname, '..');
 /**
  * The custom client class
  */
-class Client extends djs.Client {
+export class Client extends djs.Client {
 	logs: BoundedQueue<Log>;
 	interactionHandlers: djs.Collection<
 		djs.InteractionType,
@@ -166,5 +165,3 @@ class Client extends djs.Client {
 		}
 	}
 }
-
-export { Client };

@@ -6,7 +6,7 @@ import type {
 	PermissionResolvable,
 } from 'discord.js';
 import type { Client } from '../classes/Client.js';
-import type CommandCategory from '../enums/CommandCategory.js';
+import type { CommandCategory } from '../enums/index.js';
 
 /**
  * Union type to define all possible slash commands data

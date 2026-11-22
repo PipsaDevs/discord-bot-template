@@ -4,7 +4,7 @@ import {
 	SlashCommandBuilder,
 } from 'discord.js';
 import type { SlashCommand } from '../../../interfaces/index.js';
-import CommandCategory from '../../../enums/CommandCategory.js';
+import { CommandCategory } from '../../../enums/index.js';
 import { transpile } from 'typescript';
 import { inspect } from 'node:util';
 import { toError } from '../../../util/toError.js';

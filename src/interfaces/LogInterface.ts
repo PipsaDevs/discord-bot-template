@@ -1,4 +1,4 @@
-import type LogType from '../enums/LogType.js';
+import type { LogType } from '../enums/index.js';
 
 /**
  * What does a log look like?

@@ -1,7 +1,7 @@
 import type { SlashCommand } from '../../../interfaces/index.js';
 import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
 import { scape } from '../../../util/scape.js';
-import CommandCategory from '../../../enums/CommandCategory.js';
+import { CommandCategory } from '../../../enums/index.js';
 const pCmd: SlashCommand = {
 	data: new SlashCommandBuilder().setName('ping').setDescription('Pong!'),
 	category: CommandCategory.INFO,

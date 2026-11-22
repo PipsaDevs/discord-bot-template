@@ -1,5 +1,5 @@
 import type { ButtonCommand } from '../../interfaces/index.js';
-import ButtonOPCodes from '../../enums/ButtonOPCodes.js';
+import { ButtonOPCodes } from '../../enums/index.js';
 import type { GuildMemberRoleManager } from 'discord.js';
 
 const rCmd: ButtonCommand = {

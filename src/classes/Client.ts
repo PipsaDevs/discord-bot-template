@@ -1,4 +1,4 @@
-import LogType from '../enums/LogType.js';
+import { LogType, type ButtonOPCodes } from '../enums/index.js';
 import BoundedQueue from './BoundedQueue.js';
 import Log from './Log.js';
 import type {
@@ -11,7 +11,6 @@ import * as djs from 'discord.js';
 import { scanDir } from '../util/scanDir.js';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
-import type ButtonOPCodes from '../enums/ButtonOPCodes.js';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const distRoot = path.resolve(__dirname, '..');

@@ -1,4 +1,4 @@
-import type LogType from '../enums/LogType.js';
+import type { LogType } from '../enums/index.js';
 import type { LogInterface } from '../interfaces/index.js';
 
 /**
